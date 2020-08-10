@@ -27,6 +27,7 @@ class Game {
       }
       form = new Form()
       form.display();
+      form.reset.hide();
     }
 
     car1 = createSprite(100,200);
@@ -49,7 +50,7 @@ class Game {
       //var display_position = 100;
       background("brown");
       image(track,0,-displayHeight*4,displayWidth,displayHeight*5);
-      
+      form.reset.show();
       
       //index of the array
       var index = 0;
@@ -70,6 +71,9 @@ class Game {
         cars[index-1].y = y;
 
         if (index === player.index){
+          stroke(10);
+          fill("red");
+          ellipse(x,y,70,70)
           cars[index - 1].shapeColor = "red";
           camera.position.x = displayWidth/2;
           camera.position.y = cars[index-1].y
